@@ -6,8 +6,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        0,
-        0
+        -336,
+        80
       ],
       "id": "cf83a0c3-fec8-4e7f-942a-76f3fce90a88",
       "name": "When clicking ‘Execute workflow’"
@@ -210,19 +210,94 @@
           "name": "Google Sheets account"
         }
       }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtDay": [
+                1
+              ],
+              "triggerAtHour": 6
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        32,
+        0
+      ],
+      "id": "e80c3991-e4f9-4a7d-a0de-608f8249217e",
+      "name": "Schedule Trigger"
     }
   ],
-  "pinData": {},
+  "pinData": {
+    "Limit": [
+      {
+        "json": {
+          "title": "Pemerintah Bedakan KUR Perumahan dan KPR Subsidi FLPP - Demokratis.co.id",
+          "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBmbHRySWdJa29XaTdlclZKM2g1M1hMdE1PdU5ER3diUy16VVJnQ2VTNmlxQzZsdDdheFpOOVhSU0kyQUdNTXFQc1hmUjBDQXgwVjlTY2NyZ19NREx3VU5NRkVqSGtQRnRT?oc=5",
+          "pubDate": "Thu, 05 Nov 2026 01:12:01 GMT",
+          "content": "<a href=\"https://news.google.com/rss/articles/CBMiaEFVX3lxTFBmbHRySWdJa29XaTdlclZKM2g1M1hMdE1PdU5ER3diUy16VVJnQ2VTNmlxQzZsdDdheFpOOVhSU0kyQUdNTXFQc1hmUjBDQXgwVjlTY2NyZ19NREx3VU5NRkVqSGtQRnRT?oc=5\" target=\"_blank\">Pemerintah Bedakan KUR Perumahan dan KPR Subsidi FLPP</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Demokratis.co.id</font>",
+          "contentSnippet": "Pemerintah Bedakan KUR Perumahan dan KPR Subsidi FLPP  Demokratis.co.id",
+          "guid": "CBMiaEFVX3lxTFBmbHRySWdJa29XaTdlclZKM2g1M1hMdE1PdU5ER3diUy16VVJnQ2VTNmlxQzZsdDdheFpOOVhSU0kyQUdNTXFQc1hmUjBDQXgwVjlTY2NyZ19NREx3VU5NRkVqSGtQRnRT",
+          "isoDate": "2026-11-05T01:12:01.000Z"
+        }
+      },
+      {
+        "json": {
+          "title": "Realisasi KPR FLPP 194.360 Unit, Baru 55,53% dari Target 2026 - Bisnis.com - Ekonomi",
+          "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxObG5ETDRwYU9KOG9LTDBPWXRUMnN1YngyckpSOVNXZ24wdEUwOVkwN1ZMUDJ5Sm5wVGRENlV5QllDYWtkRkI4U1FRNEI2OWY0MmI1MklnQWJJODN1bWhMRHZ5TEkweVJXYkl4Ulh4TTZTVzhEOVFya1NncHQxS1FsVGtYXzRxdlRhVm9DZ3p0VjhmZnRwaGhIR1ZXME9vMUVyaGVwbHhaN0F2SFg0bEE?oc=5",
+          "pubDate": "Mon, 02 Nov 2026 23:57:28 GMT",
+          "content": "<a href=\"https://news.google.com/rss/articles/CBMirgFBVV95cUxObG5ETDRwYU9KOG9LTDBPWXRUMnN1YngyckpSOVNXZ24wdEUwOVkwN1ZMUDJ5Sm5wVGRENlV5QllDYWtkRkI4U1FRNEI2OWY0MmI1MklnQWJJODN1bWhMRHZ5TEkweVJXYkl4Ulh4TTZTVzhEOVFya1NncHQxS1FsVGtYXzRxdlRhVm9DZ3p0VjhmZnRwaGhIR1ZXME9vMUVyaGVwbHhaN0F2SFg0bEE?oc=5\" target=\"_blank\">Realisasi KPR FLPP 194.360 Unit, Baru 55,53% dari Target 2026</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Bisnis.com - Ekonomi</font>",
+          "contentSnippet": "Realisasi KPR FLPP 194.360 Unit, Baru 55,53% dari Target 2026  Bisnis.com - Ekonomi",
+          "guid": "CBMirgFBVV95cUxObG5ETDRwYU9KOG9LTDBPWXRUMnN1YngyckpSOVNXZ24wdEUwOVkwN1ZMUDJ5Sm5wVGRENlV5QllDYWtkRkI4U1FRNEI2OWY0MmI1MklnQWJJODN1bWhMRHZ5TEkweVJXYkl4Ulh4TTZTVzhEOVFya1NncHQxS1FsVGtYXzRxdlRhVm9DZ3p0VjhmZnRwaGhIR1ZXME9vMUVyaGVwbHhaN0F2SFg0bEE",
+          "isoDate": "2026-11-02T23:57:28.000Z"
+        }
+      },
+      {
+        "json": {
+          "title": "gaming is fun",
+          "link": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxNSmJYbXllakVNSWRMRUExMDdZRmVUaWx6LWZLb0F4TGtsUHBjZlJGQzdnWkRpdVpobFI3aHYwQzV2VU9fdmNTRGFnSzF2eWdBQU0zRU5hdS1NYjBudVBmNk54d2tYOG5SNGs5NkZ0M1JjVmRodjBNTXpBZDdyTF9ZMG5aTWpaZVJ5R3lkYTVsamxvQW5EUHZSRXFjQVVJclBWTGg5ZXppbTNYNmVqdEZlZEVtY2RPWDdmZjBHVzZKZ2RGUTNGT2Y3N19RTGNxNU9NZUZBN1YzRnRUd2M2eEg4LXZLMU1sc1U?oc=5",
+          "pubDate": "Tue, 03 Nov 2026 10:53:44 GMT",
+          "content": "<a href=\"https://news.google.com/rss/articles/CBMi5wFBVV95cUxNSmJYbXllakVNSWRMRUExMDdZRmVUaWx6LWZLb0F4TGtsUHBjZlJGQzdnWkRpdVpobFI3aHYwQzV2VU9fdmNTRGFnSzF2eWdBQU0zRU5hdS1NYjBudVBmNk54d2tYOG5SNGs5NkZ0M1JjVmRodjBNTXpBZDdyTF9ZMG5aTWpaZVJ5R3lkYTVsamxvQW5EUHZSRXFjQVVJclBWTGg5ZXppbTNYNmVqdEZlZEVtY2RPWDdmZjBHVzZKZ2RGUTNGT2Y3N19RTGNxNU9NZUZBN1YzRnRUd2M2eEg4LXZLMU1sc1U?oc=5\" target=\"_blank\">Properti, Utang Bank, dan Jebakan \"Gaya-Gayaan\" Pakai Uang Orang Lain Halaman all</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Kompasiana.com</font>",
+          "contentSnippet": "Properti, Utang Bank, dan Jebakan \"Gaya-Gayaan\" Pakai Uang Orang Lain Halaman all  Kompasiana.com",
+          "guid": "CBMi5wFBVV95cUxNSmJYbXllakVNSWRMRUExMDdZRmVUaWx6LWZLb0F4TGtsUHBjZlJGQzdnWkRpdVpobFI3aHYwQzV2VU9fdmNTRGFnSzF2eWdBQU0zRU5hdS1NYjBudVBmNk54d2tYOG5SNGs5NkZ0M1JjVmRodjBNTXpBZDdyTF9ZMG5aTWpaZVJ5R3lkYTVsamxvQW5EUHZSRXFjQVVJclBWTGg5ZXppbTNYNmVqdEZlZEVtY2RPWDdmZjBHVzZKZ2RGUTNGT2Y3N19RTGNxNU9NZUZBN1YzRnRUd2M2eEg4LXZLMU1sc1U",
+          "isoDate": "2026-11-03T10:53:44.000Z"
+        }
+      },
+      {
+        "json": {
+          "title": "Terjebak di Tengah KPR Subsidi dan Komersial, MBT Butuh Solusi Pembiayaan - Property & Bank",
+          "link": "https://news.google.com/rss/articles/CBMickFVX3lxTFBrSXZyLWFhY2dDQnBsNGs1UGxNRlJaSEh2Y1JWQnRuWkRzZUVGVldkVXdzNDA3aURxTXRUWFZQek9GT0NKX20tQnVWVGxualp0eGlsTDRuc0FWamMxTFg3b0dFcUdnWXM4RkpmOWV3QnhzUQ?oc=5",
+          "pubDate": "Thu, 05 Nov 2026 06:18:13 GMT",
+          "content": "<a href=\"https://news.google.com/rss/articles/CBMickFVX3lxTFBrSXZyLWFhY2dDQnBsNGs1UGxNRlJaSEh2Y1JWQnRuWkRzZUVGVldkVXdzNDA3aURxTXRUWFZQek9GT0NKX20tQnVWVGxualp0eGlsTDRuc0FWamMxTFg3b0dFcUdnWXM4RkpmOWV3QnhzUQ?oc=5\" target=\"_blank\">Terjebak di Tengah KPR Subsidi dan Komersial, MBT Butuh Solusi Pembiayaan</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">Property & Bank</font>",
+          "contentSnippet": "Terjebak di Tengah KPR Subsidi dan Komersial, MBT Butuh Solusi Pembiayaan  Property & Bank",
+          "guid": "CBMickFVX3lxTFBrSXZyLWFhY2dDQnBsNGs1UGxNRlJaSEh2Y1JWQnRuWkRzZUVGVldkVXdzNDA3aURxTXRUWFZQek9GT0NKX20tQnVWVGxualp0eGlsTDRuc0FWamMxTFg3b0dFcUdnWXM4RkpmOWV3QnhzUQ",
+          "isoDate": "2026-11-05T06:18:13.000Z"
+        }
+      },
+      {
+        "json": {
+          "title": "Dukung Aspirasi Keluarga Indonesia: KPR iB Xtra Haji Umrah Jawab Kebutuhan Hunian Syariah - malang-post.com",
+          "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPR0pmZEI4TmpVc3FqVEZOU0RrMVNVbjA5SU0tanhOcm9yVUZkdThqUDZxTTJMczRoUDg3QVFKUEVWLUo3UVJ2QkdDRkhjZGM1d2hTMzVJRmNxQS01b3g4cThMRW5ZWkFOTXBpTnhBTDBOSjd1RFpTQnFiem5VNEFXRnNDckIzdVZORmdSZ0hLRTVLNUpPY1BnNFc5ZU9qZkdsaVkxRE16U21hSVdXRkxxNDZSQ1dOTkZpcUVKU1o3bWdfdw?oc=5",
+          "pubDate": "Fri, 06 Nov 2026 05:14:28 GMT",
+          "content": "<a href=\"https://news.google.com/rss/articles/CBMiwgFBVV95cUxPR0pmZEI4TmpVc3FqVEZOU0RrMVNVbjA5SU0tanhOcm9yVUZkdThqUDZxTTJMczRoUDg3QVFKUEVWLUo3UVJ2QkdDRkhjZGM1d2hTMzVJRmNxQS01b3g4cThMRW5ZWkFOTXBpTnhBTDBOSjd1RFpTQnFiem5VNEFXRnNDckIzdVZORmdSZ0hLRTVLNUpPY1BnNFc5ZU9qZkdsaVkxRE16U21hSVdXRkxxNDZSQ1dOTkZpcUVKU1o3bWdfdw?oc=5\" target=\"_blank\">Dukung Aspirasi Keluarga Indonesia: KPR iB Xtra Haji Umrah Jawab Kebutuhan Hunian Syariah</a>&nbsp;&nbsp;<font color=\"#6f6f6f\">malang-post.com</font>",
+          "contentSnippet": "Dukung Aspirasi Keluarga Indonesia: KPR iB Xtra Haji Umrah Jawab Kebutuhan Hunian Syariah  malang-post.com",
+          "guid": "CBMiwgFBVV95cUxPR0pmZEI4TmpVc3FqVEZOU0RrMVNVbjA5SU0tanhOcm9yVUZkdThqUDZxTTJMczRoUDg3QVFKUEVWLUo3UVJ2QkdDRkhjZGM1d2hTMzVJRmNxQS01b3g4cThMRW5ZWkFOTXBpTnhBTDBOSjd1RFpTQnFiem5VNEFXRnNDckIzdVZORmdSZ0hLRTVLNUpPY1BnNFc5ZU9qZkdsaVkxRE16U21hSVdXRkxxNDZSQ1dOTkZpcUVKU1o3bWdfdw",
+          "isoDate": "2026-11-06T05:14:28.000Z"
+        }
+      }
+    ]
+  },
   "connections": {
     "When clicking ‘Execute workflow’": {
       "main": [
-        [
-          {
-            "node": "RSS Read",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "RSS Read": {
@@ -268,6 +343,17 @@
           }
         ]
       ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
@@ -275,7 +361,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "0b98ffb7-ed8b-4635-9411-45a3827aebad",
+  "versionId": "eb0a58a3-2b54-4073-b6e0-4162f858635a",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "8b08a7b2c51f6be10c7c3277567671ec9cf96c5c7cd36a9e31c86d1f6307098c"
