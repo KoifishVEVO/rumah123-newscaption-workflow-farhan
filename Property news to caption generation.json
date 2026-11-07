@@ -2,17 +2,6 @@
   "name": "Property news to caption generation",
   "nodes": [
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
-      "position": [
-        -336,
-        80
-      ],
-      "id": "cf83a0c3-fec8-4e7f-942a-76f3fce90a88",
-      "name": "When clicking ‘Execute workflow’"
-    },
-    {
       "parameters": {
         "url": "https://news.google.com/rss/search?q=properti+KPR+when:7d&hl=id&gl=ID&ceid=ID:id",
         "options": {}
@@ -295,11 +284,6 @@
     ]
   },
   "connections": {
-    "When clicking ‘Execute workflow’": {
-      "main": [
-        []
-      ]
-    },
     "RSS Read": {
       "main": [
         [
@@ -361,7 +345,7 @@
     "executionOrder": "v1",
     "binaryMode": "separate"
   },
-  "versionId": "eb0a58a3-2b54-4073-b6e0-4162f858635a",
+  "versionId": "3f399953-74fc-4cc1-bff8-8ab2e2fa01ec",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "8b08a7b2c51f6be10c7c3277567671ec9cf96c5c7cd36a9e31c86d1f6307098c"
