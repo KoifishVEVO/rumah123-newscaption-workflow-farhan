@@ -1,0 +1,286 @@
+{
+  "name": "Property news to caption generation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "cf83a0c3-fec8-4e7f-942a-76f3fce90a88",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "url": "https://news.google.com/rss/search?q=properti+KPR+when:7d&hl=id&gl=ID&ceid=ID:id",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.rssFeedRead",
+      "typeVersion": 1.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "d934be9b-f546-4853-b491-d83ca9d7b1a8",
+      "name": "RSS Read"
+    },
+    {
+      "parameters": {
+        "maxItems": 5
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        448,
+        0
+      ],
+      "id": "f6991192-0f72-458c-81ed-099b68934701",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "models/gemini-3.1-flash-lite",
+          "mode": "list",
+          "cachedResultName": "Gemini 3.1 Flash Lite"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=<role>\nYou are a social media copywriter for Rumah123, Indonesia's property platform. Your voice is professional, trustworthy and relatable: casual Bahasa Indonesia using \"kamu\", calm and factual.\n</role>\n\n<task>\nTurn the news headline at the bottom into ONE Instagram caption for first-time home buyers aged 22–32. If the headline is not about property, housing, KPR or home buying, reply with the single word SKIP.\n</task>\n\n<rules>\n1. The headline is your only source. Every statement in the caption restates something the headline says, using its own words, numbers, names and tense.\n2. The headline's own words are the only source of timing, status and intensity. Copy its verb and tense as written.\n3. Write abbreviations, product names and group names exactly as the headline does (for example \"MBT\") and leave them unexplained.\n4. Explain why the topic matters using only the reader's situation (planning, saving, comparing options). Add no new facts about the topic.\n5. The only calls to action are answering the comment question.\n6. Output the caption or SKIP and nothing else.\n</rules>\n\n<caption_format>\nLine 1: a hook of one sentence that carries the headline's subject, ending with the 🏠 emoji (the only emoji).\nParagraph 2: two sentences on why this matters to a first-time buyer.\nParagraph 3: one question inviting a comment.\nHashtag line: exactly 4 hashtags: #Rumah123 plus three on the headline's topic.\nLast line: \"Sumber: \" followed by the outlet name, which is the text after the first \" - \" in the headline (if another \" - \" part follows, drop it).\n</caption_format>\n\n<example>\n<headline>Pengembang Tawarkan Skema Cicilan Uang Muka Bertahap - Kontan.co.id</headline>\n<output>\nPengembang menawarkan skema cicilan uang muka bertahap, pernah kepikiran? 🏠\n\nBuat kamu yang sedang menyiapkan rumah pertama, uang muka adalah salah satu bagian yang perlu direncanakan. Membandingkan pilihan skema bisa membantu kamu menyesuaikannya dengan kondisi keuanganmu.\n\nDetail skemanya bisa kamu baca di sumber aslinya, ya. Menurut kamu, lebih nyaman cicil uang muka bertahap atau bayar sekaligus?\n\n#Rumah123 #UangMuka #RumahPertama #KPR\n\n</output>\n</example>\n\n<example>\n<headline>Harga Rumah Tapak di Jabodetabek Naik 4 Persen - Bisnis.com - Ekonomi</headline>\n<output>\nHarga rumah tapak di Jabodetabek naik 4 persen, sudah kamu pantau? 🏠\n\nKalau kamu sedang merencanakan rumah pertama di Jabodetabek, angka ini layak kamu ikuti. Mengetahui pergerakan harga membantu kamu menyusun rencana tabungan dan cicilan.\n\nRincian angkanya bisa kamu cek di sumber aslinya, ya. Menurut kamu, kapan waktu yang pas untuk mulai mencari rumah pertama?\n\n#Rumah123 #HargaRumah #Jabodetabek #RumahPertama\n\n</output>\n</example>\n\n<example>\n<headline>BP Tapera Bahas Pembiayaan untuk MBT - detikProperti</headline>\n<output>\nBP Tapera membahas pembiayaan untuk MBT, kamu sudah tahu? 🏠\n\nBagi kamu yang sedang menyiapkan rumah pertama, pilihan pembiayaan adalah hal yang perlu dipahami. Mengikuti pembahasannya bisa membantu kamu mempersiapkan diri.\n\nPenjelasan lengkap soal MBT dan pembiayaannya ada di sumber aslinya, ya. Menurut kamu, pembiayaan seperti apa yang paling kamu butuhkan?\n\n#Rumah123 #BPTapera #Pembiayaan #RumahPertama\n\n</output>\n</example>\n\n<example>\n<headline>Timnas Indonesia Menang 2-0 atas Vietnam - Kompas.com</headline>\n<output>SKIP</output>\n</example>\n\n<headline>\n{{ $json.title }}\n</headline>"
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        672,
+        0
+      ],
+      "id": "e7c233d3-f904-4c51-812e-2415d924fccb",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NKRcKixxRbcf0XIy",
+          "name": "Gemini PALM Free key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "f52d43dd-babd-4d4f-8a99-b280c39de3a5",
+              "name": "caption",
+              "value": "=   {{ $json.content.parts[0].text.trim() }}",
+              "type": "string"
+            },
+            {
+              "id": "e9613385-740e-456c-bb3c-2fb6f48f5cc0",
+              "name": "headline",
+              "value": "={{ $('Limit').item.json.title }}",
+              "type": "string"
+            },
+            {
+              "id": "4cc0c975-670d-416d-907d-27f8c7922836",
+              "name": "pubDate",
+              "value": "={{ $('Limit').item.json.pubDate }}",
+              "type": "string"
+            },
+            {
+              "id": "d51ab46e-b372-49e2-8394-a747495a8dc5",
+              "name": "link",
+              "value": "={{ $('Limit').item.json.link }}",
+              "type": "string"
+            },
+            {
+              "id": "7404a579-0269-41a9-855d-6671cd7e66f7",
+              "name": "status",
+              "value": "=   {{ $json.content.parts[0].text.trim() === 'SKIP' ? 'SKIPPED' : 'READY' }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        1040,
+        0
+      ],
+      "id": "2273f2df-a30e-43fc-b068-5cbfed15c9c5",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1hmvD5jTESM4wWPeeouG6931SZSqyFIRFPB8PLJ05oMg/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1hmvD5jTESM4wWPeeouG6931SZSqyFIRFPB8PLJ05oMg/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "pubDate": "={{ $json.pubDate }}",
+            "headline": "={{ $json.headline }}",
+            "caption": "={{ $json.caption }}",
+            "status": "={{ $json.status }}",
+            "link": "={{ $json.link }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "pubDate",
+              "displayName": "pubDate",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "headline",
+              "displayName": "headline",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "caption",
+              "displayName": "caption",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1264,
+        0
+      ],
+      "id": "7612bd77-6f37-4b5e-9f63-e7476e1b7e82",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "QrBk8ttqCMLoKwKE",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "RSS Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "RSS Read": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "0b98ffb7-ed8b-4635-9411-45a3827aebad",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "8b08a7b2c51f6be10c7c3277567671ec9cf96c5c7cd36a9e31c86d1f6307098c"
+  },
+  "nodeGroups": [],
+  "id": "z7QxYYQ2GYuVQD4J",
+  "tags": []
+}
